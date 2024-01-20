@@ -14,6 +14,7 @@ public static Connection connection() throws ClassNotFoundException, SQLExceptio
 	
 	Connection connection=DriverManager.getConnection("jdbc:mysql://localhost/pharmacie","root","");	
 	
+	
 	return connection;
 
 }
