@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="489.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.uiPOSController">
+   <children>
+      <Pane layoutX="-4.0" layoutY="-4.0" prefHeight="499.0" prefWidth="824.0">
+         <children>
+              <Button fx:id="Ajouter" layoutX="298.0" layoutY="214.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #0dba80;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="Retirer" layoutX="533.0" layoutY="214.0" mnemonicParsing="false" onAction="#retirer" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #0dba80;" text="Retirer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="exit" layoutX="780.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="29.0" prefWidth="28.0" style="-fx-background-color: #0dba80;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font></Button>
+           <TableView fx:id="productTable" layoutX="234.0" layoutY="327.0" prefHeight="176.0" prefWidth="591.0">
+              <columns>
+                <TableColumn fx:id="refColumn" prefWidth="140.00001525878906" text="reference" />
+                <TableColumn fx:id="nameColumn" prefWidth="110.0" text="Libellé" />
+                  <TableColumn fx:id="quantityColumn" prefWidth="73.99996948242188" text="Quantité" />
+                  <TableColumn fx:id="prixColumn" prefWidth="57.33331298828125" text="Prix" />
+                  <TableColumn fx:id="supplierColumn" prefWidth="99.33331298828125" text="id Fournisseur" />
+                  <TableColumn fx:id="formColumn" prefWidth="113.33331298828125" text="Forme" />
+              </columns>
+            </TableView>
+            <TableView fx:id="saleTable" layoutX="320.0" layoutY="32.0" prefHeight="132.0" prefWidth="400.0">
+               <columns>
+                  <TableColumn fx:id="refColumn1" prefWidth="89.99993896484375" text="reference" />
+                  <TableColumn fx:id="nameColumn1" prefWidth="143.3333740234375" text="Libellé" />
+                  <TableColumn fx:id="quantityColumn1" prefWidth="77.99990844726562" text="Quantité" />
+                  <TableColumn fx:id="prixColumn1" prefWidth="88.0" text="Prix " />
+               </columns>
+            </TableView>
+            <Label layoutX="484.0" prefHeight="18.0" prefWidth="140.0" text="Panier">
+               <font>
+                  <Font name="Calibri Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="586.0" layoutY="164.0" prefHeight="20.0" prefWidth="57.0" text="Total:">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="totalField" layoutX="638.0" layoutY="163.0" prefHeight="29.0" prefWidth="96.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Button fx:id="confimer" layoutX="657.0" layoutY="214.0" mnemonicParsing="false" onAction="#confirmerVente" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #0dba80;" text="Confirmer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="415.0" layoutY="214.0" mnemonicParsing="false" onAction="#decrement" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #0dba80;" text="Décrementer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="searchField" layoutX="245.0" layoutY="291.0" prefHeight="29.0" prefWidth="212.0" />
+            <Button fx:id="search" layoutX="468.0" layoutY="289.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #0dba80;" text="Rechercher" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="noSearch" layoutX="425.0" layoutY="293.0" mnemonicParsing="false" onAction="#deleteSearch" prefHeight="19.0" prefWidth="27.0" style="-fx-background-color: white;" text="X" textFill="#9f9f9f">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane prefHeight="499.0" prefWidth="222.0" style="-fx-background-color: #0dba80;">
+         <children>
+            <Hyperlink fx:id="productLink" layoutY="115.0" onAction="#loadUiProduct" prefHeight="59.0" prefWidth="235.0" text="Gestion Produits" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB Bold" size="26.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="supplierLink" layoutY="190.0" prefHeight="59.0" prefWidth="235.0" text="Gestion Fournisseur" onAction="#loadUIfournisseur" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB Bold" size="26.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="POSLink" layoutY="286.0" prefHeight="59.0" prefWidth="235.0" style="-fx-background-color: #018260;" text="Point De Vente" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB Bold" size="26.0" />
+               </font>
+            </Hyperlink>
+            
+            <Button fx:id="logout" alignment="CENTER" contentDisplay="TOP" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadUiLogin" prefHeight="53.0" prefWidth="140.0" style="-fx-background-color: #0dba80;" text="    Logout" textFill="WHITE">
+          <font>
+                  <Font name="Agency FB Bold" size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="50.0" fitWidth="37.0" layoutX="13.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logout.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="HistoryLink" layoutY="381.0" onAction="#loadUiHistorique" prefHeight="59.0" prefWidth="235.0" text="Historique De Ventes" textFill="WHITE">
+               <font>
+                  <Font name="Agency FB Bold" size="26.0" />
+               </font>
+            </Hyperlink>
+            
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
